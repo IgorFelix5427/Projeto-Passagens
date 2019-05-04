@@ -5,15 +5,16 @@
       <!-- Logo -->
       <div padding-horizontal text-center class="animated fadeInDown">
         <div class="logo"></div>
+        <br>
         <h4 no-margin>
           <ion-text color="light" class="fw700">
-           Sistema de Passagem
+           Sistema de Passagem 1.0
           </ion-text>
         </h4>
       </div>
       <br>
       <!-- Login form -->
-      <form [formGroup]="onLoginForm" (ngSubmit)="saveProduct(onLoginForm.value)" class="list-form">
+      <form [formGroup]="onLoginForm" (ngSubmit)="logar(onLoginForm.value)" class="list-form">
         <ion-item no-padding class="animated fadeInUp">
           <ion-label position="floating">
             <ion-icon name="mail" item-start></ion-icon>

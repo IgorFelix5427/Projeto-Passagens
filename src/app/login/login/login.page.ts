@@ -29,27 +29,26 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-  createProduct(data){
+  buscaUsuario(data){
     return this.http.post(this.url + 'login.php', data);
   }
-  saveProduct(values){
-    const productData = new FormData();
-    productData.append('login', values.login);
-    productData.append('senha', values.senha);
-    this.createProduct(productData)
+  logar(values){
+    const loginData = new FormData();
+    loginData.append('login', values.login);
+    loginData.append('senha', values.senha);
+    this.buscaUsuario(loginData)
     .subscribe(
       async result => {    
         this.dado = result;
         if(this.dado.result == 'success'){
           const alert = await this.alertCtrl.create({
             header: 'Confirm!',
-            message: 'Message <strong>Logado com Sucesso!</strong>!!!',
+            message: 'Messagem <strong>Logado com Sucesso!</strong>!!!'+this.dado.dados.login,
             buttons: [
               {
                 text: 'Sucesso!',
-                cssClass: 'succes',
+                cssClass: 'success',
                 handler: (blah) => {
-                  // console.log('Confirm Cancel: blah');
                   this.router.navigate(['/home']);
                 }
               }
@@ -59,7 +58,7 @@ export class LoginPage implements OnInit {
         } else{
           const alert = await this.alertCtrl.create({
             header: 'Confirm!',
-            message: 'Message <strong>Falha ao Logar!</strong>!!!'+this.dado.login,
+            message: 'Message <strong>Falha ao Logar!</strong>!!!',
             buttons: [
               {
                 text: 'Cancel',
@@ -77,8 +76,6 @@ export class LoginPage implements OnInit {
             ]
           });
           await alert.present();
-          console.log(this.dado);
-          this.router.navigate(['/home']);
         }
       }
     );
