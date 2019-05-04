@@ -9,6 +9,10 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+.active-item{
+  border-left: 8px solid;
+  color: #fff;
+}
 ion-menu {
   --ion-background-color: var(--ion-color-secondary);
   --ion-text-color: var(--ion-color-secondary-contrast);

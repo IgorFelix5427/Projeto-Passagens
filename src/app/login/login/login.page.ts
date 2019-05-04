@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
         if(this.dado.result == 'success'){
           const alert = await this.alertCtrl.create({
             header: 'Confirm!',
-            message: 'Messagem <strong>Logado com Sucesso!</strong>!!!'+this.dado.dados.login,
+            message: 'Menssagem <strong>Logado com Sucesso!</strong>!!!'+this.dado.dados.login,
             buttons: [
               {
                 text: 'Sucesso!',
