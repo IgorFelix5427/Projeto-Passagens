@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
 
   constructor() { }
 

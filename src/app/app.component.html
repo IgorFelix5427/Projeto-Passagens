@@ -1,13 +1,42 @@
 <ion-app>
-    <ion-split-pane>
-      <ion-menu>
-        <ion-header>
-          <ion-toolbar>
-            <ion-title>SysPass</ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header no-border>
+        <ion-toolbar color="" class="user-profile">
+          <ion-item lines="none">
+            <ion-avatar slot="start" class="user-avatar">
+              <img src="assets/img/avatar.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <ion-text color="">
+                <h1><strong>Fabricio Santos</strong></h1>
+              </ion-text>
+              <ion-text color="warning">
+                <h3> Vigia-Pa, Brasil </h3>
+              </ion-text>
+              <ion-menu-toggle class="mto" auto-hide="false">
+                <a class="text08" tappable (click)="goToEditProgile()">
+                  <ion-text color="light">
+                    <ion-icon name="contact"></ion-icon>
+                    <strong>Perfil</strong>
+                  </ion-text>
+                </a> <ion-text color="secondary"> | </ion-text> 
+                <a class="text08" tappable (click)="logout()">
+                  <ion-text color="light">
+                    <ion-icon name="log-out"></ion-icon>
+                    <strong>Sair</strong>
+                  </ion-text>
+                </a>
+              </ion-menu-toggle>
+            </ion-label>
+          </ion-item>      
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="bg-profile">
           <ion-list>
+            <ion-list-header color="primary">
+              <ion-label>Menu</ion-label>
+            </ion-list-header>
             <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
               <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [class.active-item]="p.active">
                 <ion-icon slot="start" [name]="p.icon" color="#000"></ion-icon>
@@ -17,8 +46,8 @@
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
-        </ion-content>
-      </ion-menu>
-      <ion-router-outlet main></ion-router-outlet>
-    </ion-split-pane>
-  </ion-app>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
