@@ -13,6 +13,23 @@
 </ion-header>
   
 <ion-content>
+    <ion-card class="bg-white" no-margin style="border-radius: 0px;">
+        <ion-list-header>Selecione o Trecho</ion-list-header>      
+        <ion-item>
+          <ion-label>Origem:</ion-label>
+          <ion-select placeholder="">
+            <ion-select-option value="f">Breves</ion-select-option>
+            <ion-select-option value="m">Portel</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Destino</ion-label>
+            <ion-select placeholder="">
+              <ion-select-option value="f">Belém</ion-select-option>
+              <ion-select-option value="m">Melgaço</ion-select-option>
+            </ion-select>
+        </ion-item>
+  </ion-card>    
   <ion-card class="bg-white" no-margin style="border-radius: 0px;">
     <ion-img [src]="themeCover"></ion-img>
     <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
