@@ -4,11 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title> Feed </ion-title>
-    <ion-buttons slot="end">
-      <ion-button size="small" shape="round" color="light">
-        <ion-icon name="exit"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
   
@@ -16,24 +12,26 @@
     <ion-card class="bg-white" no-margin style="border-radius: 0px;">
         <!-- <ion-list-header>Selecione o Trecho</ion-list-header>       -->
         <ion-item>
-          <ion-label>Origem:</ion-label>
-          <ion-select placeholder="">
-            <ion-select-option value="f">Breves</ion-select-option>
-            <ion-select-option value="m">Portel</ion-select-option>
+          <ion-label>Origem</ion-label>
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="popover">
+            <ion-select-option value="breves">Breves</ion-select-option>
+            <ion-select-option value="portel">Portel</ion-select-option>
+            <ion-select-option value="melgaço">Melgaço</ion-select-option>
+            <ion-select-option value="belem">Belém</ion-select-option>
+            <ion-select-option value="curralinho">Curralinho</ion-select-option>
           </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Destino</ion-label>
-            <ion-select placeholder="">
-              <ion-select-option value="f">Belém</ion-select-option>
-              <ion-select-option value="m">Melgaço</ion-select-option>
-            </ion-select>
+          <ion-label>Destino</ion-label>
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="popover">
+            <ion-select-option value="breves">Breves</ion-select-option>
+            <ion-select-option value="portel">Portel</ion-select-option>
+            <ion-select-option value="melgaço">Melgaço</ion-select-option>
+            <ion-select-option value="belem">Belém</ion-select-option>
+            <ion-select-option value="curralinho">Curralinho</ion-select-option>
+          </ion-select>
         </ion-item>
+        
   </ion-card>    
-  <ion-card class="bg-white" no-margin style="border-radius: 0px;">
-    <ion-img [src]="themeCover"></ion-img>
-    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
-      Modal 1: Modal Image
-    </ion-button>
-  </ion-card>
+  
 </ion-content>

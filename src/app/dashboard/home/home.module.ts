@@ -23,4 +23,10 @@ const routes: Routes = [
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule {
+  customActionSheetOptions: any = {
+    header: 'Colors',
+    subHeader: 'Select your favorite color'
+  };
+
+}

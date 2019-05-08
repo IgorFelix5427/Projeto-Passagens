@@ -29,19 +29,19 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-  buscaUsuario(data){
+  buscaUsuario(data){ //BUSCA DADOS NO PHP
     return this.http.post(this.url + 'login.php', data);
   }
   logar(values){
-    const loginData = new FormData();
-    loginData.append('login', values.login);
+    const loginData = new FormData();//PEGA OS DADOS DO FORMULARIO
+    loginData.append('login', values.login);//PEGA OS CAMPOS
     loginData.append('senha', values.senha);
-    this.buscaUsuario(loginData)
+    this.buscaUsuario(loginData)//CHAMA A FUNÇÃO QUE BUSCA DADOS NO PHP
     .subscribe(
       async result => {    
-        this.dado = result;
-        if(this.dado.result == 'success'){
-          const alert = await this.alertCtrl.create({
+        this.dado = result; //AQUI É O RESULTDO EM FORMA DE JSON, UM ARRAY
+        if(this.dado.result == 'success'){ //SE OCORREU TUDO CERTO
+          const alert = await this.alertCtrl.create({ //ENVIA A MENSAGEM DE ALERTA
             header: 'Confirm!',
             message: 'Menssagem <strong>Logado com Sucesso!</strong>!!!'+this.dado.dados.login,
             buttons: [
@@ -49,14 +49,14 @@ export class LoginPage implements OnInit {
                 text: 'Sucesso!',
                 cssClass: 'success',
                 handler: (blah) => {
-                  this.router.navigate(['/home']);
+                  this.router.navigate(['/home']);//REDIRECIONA PARA A TELA INICIAL
                 }
               }
             ]
           });      
           await alert.present();
-        } else{
-          const alert = await this.alertCtrl.create({
+        } else{ //SE DER ERRO ELE NÃO LOGA.
+          const alert = await this.alertCtrl.create({//ENVIA UMA ALERT DE FALHA AO LOGAR
             header: 'Confirm!',
             message: 'Message <strong>Falha ao Logar!</strong>!!!',
             buttons: [
