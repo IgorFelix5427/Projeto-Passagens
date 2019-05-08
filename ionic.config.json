@@ -1,5 +1,7 @@
 {
   "name": "syspassagens",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
