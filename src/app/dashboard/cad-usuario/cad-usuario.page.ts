@@ -50,6 +50,10 @@ export class CadUsuarioPage implements OnInit {
     const cadUser = new FormData();//PEGA OS DADOS DO FORMULARIO
     cadUser.append('login', values.login);//PEGA OS CAMPOS
     cadUser.append('senha', values.senha);
+    cadUser.append('nome', values.nome);
+    cadUser.append('cpf', values.cpf);
+    cadUser.append('tel', values.tel);
+    cadUser.append('end', values.end);
     this.cadUsuarioPost(cadUser)
     .subscribe(
       async res => {
