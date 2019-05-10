@@ -5,14 +5,12 @@
       <!-- Logo -->
       <div padding-horizontal text-center class="animated fadeInDown">
         <div class="logo"></div>
-        <br>
-        <h4 no-margin>
+        <!-- <h4 no-margin>
           <ion-text color="light" class="fw700">
-           Sistema de Passagem 1.0
+           Marajó Passagens
           </ion-text>
-        </h4>
+        </h4> -->
       </div>
-      <br>
       <!-- Login form -->
       <form [formGroup]="onLoginForm" (ngSubmit)="logar(onLoginForm.value)" class="list-form">
         <ion-item no-padding class="animated fadeInUp">
@@ -35,7 +33,6 @@
         <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('senha').touched && onLoginForm.get('senha').hasError('required')">
           <ion-text color="warning">* Campo Obrigatório</ion-text>
         </p>
-        <br>
         <br>          
         <ion-button type="submit" icon-left size="medium" expand="full" shape="round" color="dark" [disabled]="!onLoginForm.valid" tappable>
           <ion-icon name="log-in"></ion-icon> Entrar

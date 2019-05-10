@@ -24,6 +24,18 @@ export class CadUsuarioPage implements OnInit {
       ])],
       'senha': [null, Validators.compose([
         Validators.required
+      ])],
+      'nome': [null, Validators.compose([
+        Validators.required
+      ])],
+      'cpf': [null, Validators.compose([
+        Validators.required
+      ])],
+      'tel': [null, Validators.compose([
+        Validators.required
+      ])],
+      'end': [null, Validators.compose([
+        Validators.required
       ])]
     });
   }
@@ -61,6 +73,9 @@ export class CadUsuarioPage implements OnInit {
         await alert.present();
       }      
     });
+  }
+  voltar(){
+    this.router.navigate(['../']);
   }
 
   ionViewDidEnter(){

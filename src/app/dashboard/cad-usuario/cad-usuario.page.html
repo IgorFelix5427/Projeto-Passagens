@@ -1,11 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Cadastro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
+<ion-content padding class="animated fadeIn login auth-page">
+    <div class="theme-bg"></div>
+    <div class="auth-content">
+        <div padding-horizontal text-center class="animated fadeInDown">
+        <br>
+        <h4 no-margin>
+          <ion-text color="light" class="fw700">
+           Cadastro de Usuário
+          </ion-text>
+        </h4>
+      </div>
+      <br>
+      <!-- Cadastro form -->
     <form [formGroup]="cadUsuarioForm" (ngSubmit)="cadUsuario(cadUsuarioForm.value)" class="list-form">
+      <!-- Login -->
         <ion-item>
             <ion-label position="floating">Login: </ion-label>
           <ion-input color="secondary" type="text" formControlName="login"></ion-input>
@@ -13,6 +20,7 @@
         <p ion-text class="text08" *ngIf="cadUsuarioForm.get('login').touched && cadUsuarioForm.get('login').hasError('required')">
             <ion-text color="warning">* Campo Obrigatório</ion-text>
         </p>
+        <!-- Senha -->
         <ion-item>
             <ion-label position="floating">Senha: </ion-label>
           <ion-input color="secondary" type="password" formControlName="senha"></ion-input>
@@ -20,10 +28,42 @@
         <p ion-text color="warning" class="text08" *ngIf="cadUsuarioForm.get('senha').touched && cadUsuarioForm.get('senha').hasError('required')">
           <ion-text color="warning">* Campo Obrigatório</ion-text>
         </p>
-        <br>        
+        <!-- Nome -->
+        <ion-item>
+            <ion-label position="floating">Nome: </ion-label>
+          <ion-input color="secondary" type="text" formControlName="nome"></ion-input>
+        </ion-item>
+        <p ion-text color="warning" class="text08" *ngIf="cadUsuarioForm.get('nome').touched && cadUsuarioForm.get('nome').hasError('required')">
+          <ion-text color="warning">* Campo Obrigatório</ion-text>
+        </p>
+        <!-- CPF -->
+        <ion-item>
+            <ion-label position="floating">CPF: </ion-label>
+          <ion-input color="secondary" type="number" formControlName="cpf"></ion-input>
+        </ion-item>
+        <p ion-text color="warning" class="text08" *ngIf="cadUsuarioForm.get('cpf').touched && cadUsuarioForm.get('cpf').hasError('required')">
+          <ion-text color="warning">* Campo Obrigatório</ion-text>
+        </p>
+          <!-- Telefone -->
+        <ion-item>
+            <ion-label position="floating">Telefone: </ion-label>
+          <ion-input color="secondary" type="number" formControlName="tel"></ion-input>
+        </ion-item>
+        <p ion-text color="warning" class="text08" *ngIf="cadUsuarioForm.get('tel').touched && cadUsuarioForm.get('tel').hasError('required')">
+          <ion-text color="warning">* Campo Obrigatório</ion-text>
+        </p>
+        <!-- Endereço -->
+        <ion-item>
+            <ion-label position="floating">Endereço: </ion-label>
+          <ion-input color="secondary" type="number" formControlName="end"></ion-input>
+        </ion-item>
+        <p ion-text color="warning" class="text08" *ngIf="cadUsuarioForm.get('end').touched && cadUsuarioForm.get('end').hasError('required')">
+          <ion-text color="warning">* Campo Obrigatório</ion-text>
+        </p>
+        <br>
       <ion-item>
-        <ion-button type="reset" size="medium" color="danger" style="align-items: left;">
-          Cancelar
+        <ion-button (click)="voltar()" size="medium" color="danger" style="align-items: left;">
+          Voltar
           <ion-icon slot="end" name="close"></ion-icon>
         </ion-button>
         <ion-button type="submit" size="medium" color="secondary" style="align-items: right;" [disabled]="!cadUsuarioForm.valid" tappable>
@@ -32,4 +72,5 @@
         </ion-button>
       </ion-item>
       </form>
+      </div>
 </ion-content>

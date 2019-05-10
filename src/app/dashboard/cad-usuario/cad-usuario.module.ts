@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { CadUsuarioPage } from './cad-usuario.page';
 
+
 const routes: Routes = [
   {
     path: '',
