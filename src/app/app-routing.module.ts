@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login/login.module#LoginPageModule' },
   { path: 'home', loadChildren: './dashboard/home/home.module#HomePageModule' },
   { path: 'usuario', loadChildren: './dashboard/usuario/usuario.module#UsuarioPageModule' },
-  { path: 'passagem', loadChildren: './dashboard/passagem/passagem.module#PassagemPageModule' }
+  { path: 'passagem', loadChildren: './dashboard/passagem/passagem.module#PassagemPageModule' },
+  { path: 'cad-usuario', loadChildren: './dashboard/cad-usuario/cad-usuario.module#CadUsuarioPageModule' }
  
 ];
 

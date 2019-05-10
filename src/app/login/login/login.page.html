@@ -17,7 +17,7 @@
       <form [formGroup]="onLoginForm" (ngSubmit)="logar(onLoginForm.value)" class="list-form">
         <ion-item no-padding class="animated fadeInUp">
           <ion-label position="floating">
-            <ion-icon name="mail" item-start></ion-icon>
+            <ion-icon name="person" item-start></ion-icon>
               Usuário:
           </ion-label>
           <ion-input color="secondary" type="text" formControlName="login"></ion-input>
@@ -73,7 +73,7 @@
   
       <!-- Other links -->
       <div text-center margin-top>
-        <span (click)="goToRegister()" class="paz" tappable>
+        <span (click)="newUser()" class="paz" tappable>
           <ion-text color="light">
             Novo aqui? <strong>Cadastrar-se</strong>
           </ion-text>

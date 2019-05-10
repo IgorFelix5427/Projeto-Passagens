@@ -15,8 +15,8 @@ export class LoginPage implements OnInit {
   dado: any;
   
   constructor(
-    public menuCtrl: MenuController, public toastCtrl: ToastController, public alertCtrl: AlertController, public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+    public menuCtrl: MenuController, public toastCtrl: ToastController, public alertCtrl: AlertController, 
+    public loadingCtrl: LoadingController, private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.onLoginForm = this.formBuilder.group({
       'login': [null, Validators.compose([
         Validators.required
@@ -29,12 +29,18 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
+  newUser(){
+    this.router.navigate(['/cad-usuario']);
+  }
+  
   ionViewDidEnter(){
     this.menuCtrl.enable(false);
   }
   ionViewWillLeave(){
     this.menuCtrl.enable(true);
   }
+  
   buscaUsuario(data){ //BUSCA DADOS NO PHP
     return this.http.post(this.url + 'login.php', data);
   }
