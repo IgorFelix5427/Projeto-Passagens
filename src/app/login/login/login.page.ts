@@ -29,6 +29,12 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  ionViewDidEnter(){
+    this.menuCtrl.enable(false);
+  }
+  ionViewWillLeave(){
+    this.menuCtrl.enable(true);
+  }
   buscaUsuario(data){ //BUSCA DADOS NO PHP
     return this.http.post(this.url + 'login.php', data);
   }
