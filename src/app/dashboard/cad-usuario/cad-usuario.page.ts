@@ -48,6 +48,21 @@ export class CadUsuarioPage implements OnInit {
       this.dado = res;
       if(this.dado.result == 'success'){
         this.router.navigate(['/login']);//REDIRECIONA PARA A TELA INICIAL
+      } else if(this.dado.result == '1'){
+        const alert = await this.alertCtrl.create({ //ENVIA A MENSAGEM DE ALERTA
+          header: 'Confirm!',
+          message: 'Menssagem <strong>E-mail já Cadastrado!</strong>!!!',
+          buttons: [
+            {
+              text: 'Atenção!',
+              cssClass: 'danger',
+              handler: (blah) => {
+                this.router.navigate(['/cad-usuario']);//REDIRECIONA PARA A TELA INICIAL
+              }
+            }
+          ]
+        });      
+        await alert.present();
       } else {
         const alert = await this.alertCtrl.create({ //ENVIA A MENSAGEM DE ALERTA
           header: 'Confirm!',
