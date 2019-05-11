@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
     public menuCtrl: MenuController, public toastCtrl: ToastController, public alertCtrl: AlertController, 
     public loadingCtrl: LoadingController, private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.onLoginForm = this.formBuilder.group({
-      'login': [null, Validators.compose([
+      'email': [null, Validators.compose([
         Validators.required
       ])],
       'senha': [null, Validators.compose([
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
   }
   logar(values){
     const loginData = new FormData();//PEGA OS DADOS DO FORMULARIO
-    loginData.append('login', values.login);//PEGA OS CAMPOS
+    loginData.append('email', values.email);//PEGA OS CAMPOS
     loginData.append('senha', values.senha);
     this.buscaUsuario(loginData)//CHAMA A FUNÇÃO QUE BUSCA DADOS NO PHP
     .subscribe(
@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
         if(this.dado.result == 'success'){ //SE OCORREU TUDO CERTO
           const alert = await this.alertCtrl.create({ //ENVIA A MENSAGEM DE ALERTA
             header: 'Confirm!',
-            message: 'Menssagem <strong>Logado com Sucesso!</strong>!!!'+this.dado.dados.login,
+            message: 'Menssagem <strong>Logado com Sucesso!</strong>!!!'+this.dado.dados.email,
             buttons: [
               {
                 text: 'Sucesso!',

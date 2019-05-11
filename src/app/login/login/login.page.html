@@ -11,23 +11,19 @@
           </ion-text>
         </h4> -->
       </div>
-      <!-- Login form -->
+      <!-- Email form -->
       <form [formGroup]="onLoginForm" (ngSubmit)="logar(onLoginForm.value)" class="list-form">
         <ion-item no-padding class="animated fadeInUp">
           <ion-label position="floating">
-            <ion-icon name="person" item-start></ion-icon>
-              Usuário:
-          </ion-label>
-          <ion-input color="secondary" type="text" formControlName="login"></ion-input>
+            <ion-icon name="person" item-start></ion-icon>Email:</ion-label>
+          <ion-input color="secondary" type="email" formControlName="email"></ion-input>
         </ion-item>
-        <p ion-text class="text08" *ngIf="onLoginForm.get('login').touched && onLoginForm.get('login').hasError('required')">
+        <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
             <ion-text color="warning">* Campo Obrigatório</ion-text>
         </p>
         <ion-item no-padding class="animated fadeInUp">
           <ion-label position="floating">
-            <ion-icon name="lock" item-start></ion-icon>
-              Senha:
-          </ion-label>
+            <ion-icon name="lock" item-start></ion-icon>Senha:</ion-label>
           <ion-input color="secondary" type="password" formControlName="senha"></ion-input>
         </ion-item>
         <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('senha').touched && onLoginForm.get('senha').hasError('required')">

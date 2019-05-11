@@ -4,13 +4,13 @@ header("Access-Control-Allow-Methods: PUT, GET, POST");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 include '../config/database.php';
 $con = getConnection();
-if (isset($_POST['login']) AND isset($_POST['senha'])) {
-    $login = $_POST['login'];
+if (isset($_POST['email']) AND isset($_POST['senha'])) {
+    $email = $_POST['email'];
     $senha = md5($_POST['senha']);
     try {
-        $query = "SELECT * FROM usuario WHERE login = ? AND senha = ? LIMIT 0,1";
+        $query = "SELECT * FROM usuario WHERE email = ? AND senha = ? LIMIT 0,1";
         $stmt = $con->prepare($query);    
-        $stmt->bindParam(1, $login);
+        $stmt->bindParam(1, $email);
         $stmt->bindParam(2, $senha);
 
         $stmt->execute();

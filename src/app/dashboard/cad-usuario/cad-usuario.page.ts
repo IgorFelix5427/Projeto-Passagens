@@ -19,22 +19,13 @@ export class CadUsuarioPage implements OnInit {
     private formBuilder: FormBuilder, 
     private http: HttpClient, private alertCtrl: AlertController ) {
     this.cadUsuarioForm = this.formBuilder.group({
-      'login': [null, Validators.compose([
+      'email': [null, Validators.compose([
         Validators.required
       ])],
       'senha': [null, Validators.compose([
         Validators.required
       ])],
       'nome': [null, Validators.compose([
-        Validators.required
-      ])],
-      'cpf': [null, Validators.compose([
-        Validators.required
-      ])],
-      'tel': [null, Validators.compose([
-        Validators.required
-      ])],
-      'end': [null, Validators.compose([
         Validators.required
       ])]
     });
@@ -48,8 +39,9 @@ export class CadUsuarioPage implements OnInit {
   }
   cadUsuario(values){
     const cadUser = new FormData();//PEGA OS DADOS DO FORMULARIO
-    cadUser.append('login', values.login);//PEGA OS CAMPOS
+    cadUser.append('email', values.email);//PEGA OS CAMPOS
     cadUser.append('senha', values.senha);
+    cadUser.append('nome', values.nome);
     this.cadUsuarioPost(cadUser)
     .subscribe(
       async res => {
