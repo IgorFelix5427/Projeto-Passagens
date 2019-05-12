@@ -20,6 +20,9 @@
         <p ion-text class="text08" *ngIf="cadUsuarioForm.get('email').touched && cadUsuarioForm.get('email').hasError('required')">
             <ion-text color="warning">* Campo Obrigatório</ion-text>
         </p>
+        <p ion-text class="text08" *ngIf="cadUsuarioForm.get('email').hasError('email')"> 
+          <ion-text color="warning">Formato do e-mail é inválido</ion-text>
+        </p>
         <!-- Senha -->
         <ion-item>
             <ion-label position="floating">Senha: </ion-label>

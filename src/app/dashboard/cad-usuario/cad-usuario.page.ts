@@ -19,9 +19,7 @@ export class CadUsuarioPage implements OnInit {
     private formBuilder: FormBuilder, 
     private http: HttpClient, private alertCtrl: AlertController ) {
     this.cadUsuarioForm = this.formBuilder.group({
-      'email': [null, Validators.compose([
-        Validators.required
-      ])],
+      'email': [null, Validators.compose([Validators.required, Validators.email])],
       'senha': [null, Validators.compose([
         Validators.required
       ])],
