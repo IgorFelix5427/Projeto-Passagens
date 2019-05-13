@@ -16,7 +16,7 @@
         <ion-item no-padding class="animated fadeInUp">
           <ion-label position="floating">
             <ion-icon name="person" item-start></ion-icon>Email:</ion-label>
-          <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+          <ion-input color="secondary" type="email" formControlName="email" value="admin@admin.com"></ion-input>
         </ion-item>
         <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
             <ion-text color="warning">* Campo Obrigatório</ion-text>

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
 import {HttpClient} from "@angular/common/http";
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginPage implements OnInit {
   dado: any;
   
   constructor(
-    public menuCtrl: MenuController, public toastCtrl: ToastController, public alertCtrl: AlertController, 
+    public menuCtrl: MenuController, public toastCtrl: ToastController, public alertCtrl: AlertController, private storage: Storage,
     public loadingCtrl: LoadingController, private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.onLoginForm = this.formBuilder.group({
       'email': [null, Validators.compose([
@@ -24,10 +25,9 @@ export class LoginPage implements OnInit {
       'senha': [null, Validators.compose([
         Validators.required
       ])]
-    });
+    });    
   }
-
-  ngOnInit() {
+  ngOnInit() {    
   }
 
   newUser(){
@@ -60,7 +60,8 @@ export class LoginPage implements OnInit {
               {
                 text: 'Sucesso!',
                 cssClass: 'success',
-                handler: (blah) => {
+                handler: (blah) => {                  
+                  this.storage.set('usuario', this.dado.dados.email);
                   this.router.navigate(['/home']);//REDIRECIONA PARA A TELA INICIAL
                 }
               }
